@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+#bash script for kallisto; align all .fastq.gz files to indexed reference genome to generate kalisto files
+
+for SAMPLE in `cat fastq_list`
+
+do
+    kallisto quant -i hsGRCh38 -o kallisto_out/${SAMPLE} -b 100 ${SAMPLE}_R1.fastq.gz ${SAMPLE}_R2.fastq.gz
+done
